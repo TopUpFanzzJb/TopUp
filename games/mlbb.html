@@ -146,15 +146,25 @@
 
 <script>
 function order(item){
-  const uid=uid.value.trim();
-  if(!uid){alert("User ID wajib diisi");return;}
-  const wa="6287868188990";
-  const msg=`Halo FanzzStore
+  const uid = document.getElementById("uid").value.trim();
+  const server = document.getElementById("server").value;
+  const nick = document.getElementById("nick").value;
+
+  if(!uid){
+    alert("User ID wajib diisi");
+    return;
+  }
+
+  const wa = "6287868188990";
+
+  const msg = `Halo FanzzStore
 Game: Mobile Legends
 Item: ${item}
-ID: ${uid} (${server.value})
-Nick: ${nick.value||"-"}`;
-  location.href=`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`;
+ID: ${uid} (${server})
+Nick: ${nick || "-"}`;
+
+  window.location.href =
+    "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
 }
 </script>
 
