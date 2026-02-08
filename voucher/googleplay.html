@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Play - FanzzStore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="../index.html">⬅</a>
+  <h2>Google Play</h2>
+</header>
+
+<div class="game-hero">
+  <img src="../assets/voucher/googleplay.png" class="game-icon">
+  <div>
+    <h3>Voucher Google Play</h3>
+    <p class="muted">Kode legal & siap pakai</p>
+  </div>
+</div>
+
+<h3 style="padding:0 14px">Pilih Voucher</h3>
+
+<div class="grid">
+  <div class="card">
+    <h4>Google Play 50K</h4>
+    <p>Rp 52.000</p>
+    <button onclick="order('Google Play 50K')">Order</button>
+  </div>
+
+  <div class="card">
+    <h4>Google Play 100K</h4>
+    <p>Rp 103.000</p>
+    <button onclick="order('Google Play 100K')">Order</button>
+  </div>
+</div>
+
+<script>
+function order(item){
+  const wa = "628XXXXXXXXX";
+  const msg = `Halo FanzzStore
+Saya mau beli voucher
+
+🎮 ${item}`;
+
+  location.href = "https://wa.me/"+wa+"?text="+encodeURIComponent(msg);
+}
+</script>
+
+</body>
+      </html>
