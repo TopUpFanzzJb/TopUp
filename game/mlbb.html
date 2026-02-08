@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Legends - FanzzStore</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="../index.html">⬅</a>
+  <h2>Mobile Legends</h2>
+</header>
+
+<div class="form-box">
+  <label>User ID</label>
+  <input id="uid" placeholder="12345678">
+  <label>Server</label>
+  <input id="server" placeholder="1234">
+  <label>Nickname</label>
+  <input id="nick" placeholder="Nickname in-game">
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h4>86 Diamonds</h4>
+    <p>Rp 20.000</p>
+    <button onclick="order('86 Diamonds')">Order</button>
+  </div>
+</div>
+
+<script>
+function order(item){
+  const uid=uid.value.trim();
+  if(!uid){alert("User ID wajib diisi");return;}
+  const wa="628XXXXXXXXX";
+  const msg=`Halo FanzzStore
+Game: Mobile Legends
+Item: ${item}
+ID: ${uid} (${server.value})
+Nick: ${nick.value||"-"}`;
+  location.href=`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`;
+}
+</script>
+
+</body>
+    </html>
