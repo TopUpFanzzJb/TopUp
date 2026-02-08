@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FanzzStore</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <img src="assets/logo.png" class="logo">
+  <div>
+    <h1>FanzzStore</h1>
+    <span class="subtitle">Top Up Game • Pulsa • Voucher</span>
+  </div>
+</header>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Cari game, pulsa, voucher...">
+</div>
+
+<div class="tabs">
+  <button class="active" onclick="showTab('game',this)">Game</button>
+  <button onclick="showTab('pulsa',this)">Pulsa</button>
+  <button onclick="showTab('voucher',this)">Voucher</button>
+</div>
+
+<section id="game" class="tab-content active">
+  <div class="grid">
+    <a href="games/mlbb.html" class="card"><img src="assets/icons/mlbb.jpg"><span>Mobile Legends</span></a>
+    <a href="games/freefire.html" class="card"><img src="assets/icons/freefire.jpg"><span>Free Fire</span></a>
+    <a href="games/genshin.html" class="card"><img src="assets/icons/genshin.jpg"><span>Genshin Impact</span></a>
+    <a href="games/pubg.html" class="card"><img src="assets/icons/pubg.jpg"><span>PUBG Mobile</span></a>
+    <a href="games/roblox.html" class="card"><img src="assets/icons/roblox.jpg"><span>Roblox</span></a>
+    <a href="games/apex.html" class="card"><img src="assets/icons/apex.jpg"><span>Apex Legends</span></a>
+  </div>
+</section>
+
+<section id="pulsa" class="tab-content">
+  <div class="grid">
+    <a href="pulsa/telkomsel.html" class="card"><img src="assets/icons/telkomsel.png"><span>Telkomsel</span></a>
+    <a href="pulsa/xl.html" class="card"><img src="assets/icons/xl.png"><span>XL</span></a>
+    <a href="pulsa/indosat.html" class="card"><img src="assets/icons/indosat.png"><span>Indosat</span></a>
+  </div>
+</section>
+
+<section id="voucher" class="tab-content">
+  <div class="grid">
+    <a href="voucher/googleplay.html" class="card"><img src="assets/icons/googleplay.png"><span>Google Play</span></a>
+    <a href="voucher/steam.html" class="card"><img src="assets/icons/steam.png"><span>Steam</span></a>
+    <a href="voucher/itunes.html" class="card"><img src="assets/icons/itunes.png"><span>iTunes</span></a>
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+</body>
+  </html>
