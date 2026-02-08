@@ -95,6 +95,19 @@ body{
   background:rgba(255,255,255,.25);
   border-radius:50%;transform:scale(0);opacity:0
 }
+
+.banner {
+  margin: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+.banner img {
+  width: 100%;
+  display: block;
+    }
+
 .card.ripple::after{animation:ripple .6s ease-out}
 @keyframes ripple{
   from{transform:scale(0);opacity:.6}
