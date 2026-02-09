@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUBG Mobile - FanzzStore</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="../index.html">⬅</a>
+  <h2>PUBG Mobile</h2>
+</header>
+
+<div class="form-box">
+  <label>User ID</label>
+  <input id="uid" placeholder="12345678">
+  <label>Nickname</label>
+  <input id="nick" placeholder="Nickname in-game">
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h4>60 UC</h4>
+    <p>Rp 17.200</p>
+    <button onclick="order('60 UC')">Order</button>
+  </div>
+
+  <div class="card">
+  <h4>325 UC</h4>
+  <p>Rp 86.000</p>
+  <button onclick="order('325 UC')">Order</button>
+</div>
+
+<div class="card">
+  <h4>660 UC</h4>
+  <p>Rp 172.000</p>
+  <button onclick="order('660 UC')">Order</button>
+</div>
+
+<div class="card">
+  <h4>1800 UC</h4>
+  <p>Rp 430.000</p>
+  <button onclick="order('1800 UC')">Order</button>
+</div>
+
+<div class="card">
+  <h4>3850 UC</h4>
+  <p>Rp 860.000</p>
+  <button onclick="order('3850 UC')">Order</button>
+</div>
+
+<div class="card">
+  <h4>8100 UC</h4>
+  <p>Rp 1.720.000</p>
+  <button onclick="order('8100 UC')">Order</button>
+</div>
+</div>
+
+<script>
+function order(item){
+  const uid = document.getElementById("uid").value.trim();
+  const server = document.getElementById("server").value;
+  const nick = document.getElementById("nick").value;
+
+  if(!uid){
+    alert("User ID wajib diisi");
+    return;
+  }
+
+  const wa = "6287868188990";
+
+  const msg = `Halo FanzzStore
+Game: PUBG Mobile 
+Item: ${item}
+ID: ${uid}
+Nick: ${nick || "-"}`;
+
+  window.location.href =
+    "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
+}
+</script>
+
+</body>
+  </html>
