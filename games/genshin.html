@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genshin Impact - FanzzStore</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="../index.html">⬅</a>
+  <h2>Genshin Impact</h2>
+</header>
+
+<div class="form-box">
+  <label>User ID</label>
+  <input id="uid" placeholder="12345678">
+  <label>Nickname</label>
+  <input id="nick" placeholder="Nickname in-game">
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h4>60 Genshin Crsytals</h4>
+    <p>Rp 16.500</p>
+    <button onclick="order('60 Genshin Crsytals')">Order</button>
+  </div>
+
+  <div class="card">
+  <h4>Blessing of the Welkin Moon</h4>
+  <p>Rp 80.500</p>
+  <button onclick="order('Blessing of the Welkin Moon')">Order</button>
+</div>
+
+<div class="card">
+  <h4>330 Genshin Crsytals</h4>
+  <p>Rp 80.500</p>
+  <button onclick="order('330 Genshin Crsytals')">Order</button>
+</div>
+
+<div class="card">
+  <h4>1099 Genshin Crsytals</h4>
+  <p>Rp 255.000</p>
+  <button onclick="order('1099 Genshin Crsytals')">Order</button>
+</div>
+
+<div class="card">
+  <h4>2240 Genshin Crsytals</h4>
+  <p>Rp 489.000</p>
+  <button onclick="order('2240 Genshin Crsytals')">Order</button>
+</div>
+
+<div class="card">
+  <h4>3880 Genshin Crsytals</h4>
+  <p>Rp 815.000</p>
+  <button onclick="order('3880 Genshin Crsytals')">Order</button>
+</div>
+</div>
+
+<script>
+function order(item){
+  const uid = document.getElementById("uid").value.trim();
+  const server = document.getElementById("server").value;
+  const nick = document.getElementById("nick").value;
+
+  if(!uid){
+    alert("User ID wajib diisi");
+    return;
+  }
+
+  const wa = "6287868188990";
+
+  const msg = `Halo FanzzStore
+Game: Genshin Impact
+Item: ${item}
+ID: ${uid}
+Nick: ${nick || "-"}`;
+
+  window.location.href =
+    "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
+}
+</script>
+
+</body>
+  </html>
