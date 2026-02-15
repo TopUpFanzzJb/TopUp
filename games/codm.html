@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Call of Duty Mobile- FanzzStore</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="../index.html">⬅</a>
+  <h2>Call of Duty Mobile</h2>
+</header>
+
+<div class="form-box">
+  <label>User ID</label>
+  <input id="uid" placeholder="12345678">
+  <label>Nickname</label>
+  <input id="nick" placeholder="Nickname in-game">
+</div>
+
+<div class="grid">
+  <div class="card">
+  <h4>31 CP</h4>
+  <p>Rp 5.000</p>
+  <button onclick="order('Call of Duty Mobile - 31 CP')">Order</button>
+</div>
+
+<div class="card">
+  <h4>63 CP</h4>
+  <p>Rp 10.000</p>
+  <button onclick="order('Call of Duty Mobile - 63 CP')">Order</button>
+</div>
+
+<div class="card">
+  <h4>128 CP</h4>
+  <p>Rp 20.000</p>
+  <button onclick="order('Call of Duty Mobile - 128 CP')">Order</button>
+</div>
+
+<div class="card">
+  <h4>321 CP</h4>
+  <p>Rp 50.000</p>
+  <button onclick="order('Call of Duty Mobile - 321 CP')">Order</button>
+</div>
+
+<div class="card">
+  <h4>645 CP</h4>
+  <p>Rp 100.000</p>
+  <button onclick="order('Call of Duty Mobile - 645 CP')">Order</button>
+</div>
+
+<div class="card">
+  <h4>1373 CP</h4>
+  <p>Rp 200.000</p>
+  <button onclick="order('Call of Duty Mobile - 1373 CP')">Order</button>
+</div>
+
+<div class="card">
+  <h4>2060 CP</h4>
+  <p>Rp 300.000</p>
+  <button onclick="order('Call of Duty Mobile - 2060 CP')">Order</button>
+  </div>
+</div>
+
+<script>
+function order(item){
+  const uid = document.getElementById("uid").value.trim();
+  const nick = document.getElementById("nick").value;
+
+  if(!uid){
+    alert("User ID wajib diisi");
+    return;
+  }
+
+  const wa = "6287868188990";
+
+  const msg = `Halo FanzzStore
+Game: Genshin Impact
+Item: ${item}
+ID: ${uid}
+Nick: ${nick || "-"}`;
+
+  window.location.href =
+    "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
+}
+</script>
+
+</body>
+  </html>
