@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Bulanan Telkomsel</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<h2>Data Bulanan Telkomsel</h2>
+
+<input type="text" id="nomor" placeholder="Masukkan Nomor HP">
+
+<div class="card">
+  <h4>1GB + 500MB</h4>
+  <p>Rp 15.000</p>
+  <button onclick="order('Telkomsel 1GB + 500MB - Rp15.000')">Order</button>
+</div>
+
+<div class="card">
+  <h4>3GB + 2GB</h4>
+  <p>Rp 30.000</p>
+  <button onclick="order('Telkomsel 3GB + 2GB - Rp30.000')">Order</button>
+</div>
+
+<div class="card">
+  <h4>10GB</h4>
+  <p>Rp 60.000</p>
+  <button onclick="order('Telkomsel 10GB - Rp60.000')">Order</button>
+</div>
+
+<div class="card">
+  <h4>25GB</h4>
+  <p>Rp 110.000</p>
+  <button onclick="order('Telkomsel 25GB - Rp110.000')">Order</button>
+</div>
+
+<script>
+function order(paket) {
+  var nomor = document.getElementById("nomor").value;
+  if(nomor == ""){
+    alert("Masukkan nomor HP dulu!");
+    return;
+  }
+
+  var pesan = `Halo Admin, saya mau beli:\n${paket}\nNomor: ${nomor}`;
+  var url = "https://wa.me/62NOMORKAMU?text=" + encodeURIComponent(pesan);
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+                                                               </html>
