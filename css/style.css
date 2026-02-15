@@ -107,6 +107,34 @@ body{
   width: 100%;
   display: block;
     }
+.list-menu {
+  margin-top:20px;
+}
+
+.menu-item {
+  display:block;
+  padding:15px;
+  background:#1c1c1c;
+  margin-bottom:10px;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+}
+
+.menu-item:hover {
+  background:#2a2a2a;
+}
+
+input {
+  width:100%;
+  padding:12px;
+  margin:15px 0;
+  border-radius:8px;
+  border:none;
+  background:#2a2a2a;
+  color:white;
+  }
 
 .card.ripple::after{animation:ripple .6s ease-out}
 @keyframes ripple{
