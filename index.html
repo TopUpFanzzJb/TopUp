@@ -3,71 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FanzzStore</title>
-<link rel="stylesheet" href="css/style.css">
+<title>FanzzStore Top-Up Ultimate</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* PARTICLES */
+.particle {position:absolute;width:6px;height:6px;background:#ffdd00;border-radius:50%;animation:move 10s linear infinite;opacity:0.7;}
+@keyframes move{0%{transform:translateY(0) translateX(0);}50%{transform:translateY(-100vh) translateX(100vw);}100%{transform:translateY(0) translateX(0);}}
+
+/* HEADER */
+header{text-align:center;padding:20px;}
+header h1{font-family:'Orbitron',sans-serif;font-size:2.2rem;color:#ffdd00;text-shadow:0 0 10px #ffdd00;margin:0;}
+
+/* BANNER SLIDER */
+.slider{width:90%;max-width:1000px;margin:0 auto 20px;position:relative;overflow:hidden;border-radius:20px;}
+.slider img{width:100%;display:none;border-radius:20px;}
+.slider img.active{display:block;}
+
+/* CARD FORM */
+.card{background:rgba(0,0,0,0.85);padding:30px;border-radius:20px;box-shadow:0 0 30px rgba(0,0,0,0.6);width:90%;max-width:400px;margin:0 auto 30px;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(60deg,#ff00cc,#3333ff,#00ffcc,#ffcc00);animation:rotate 6s linear infinite;z-index:0;opacity:0.25;}
+@keyframes rotate{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.card *{position:relative;z-index:1;}
+
+input, select, button{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;font-size:1rem;outline:none;}
+
+/* NEON BUTTON */
+button{
+    background: linear-gradient(90deg,#ff416c,#ff4b2b);
+    color:#fff;font-size:1.1rem;cursor:pointer;box-shadow:0 0 10px #ff4b2b;
+    animation: neon 1.5s ease-in-out infinite alternate;
+    transition:0.3s;
+}
+button:hover{transform:scale(1.05);box-shadow:0 0 20px #ff4b2b,0 0 40px #ff416c;}
+button:active{transform:scale(0.95);}
+@keyframes neon{0%{box-shadow:0 0 10px #ff4b2b,0 0 20px #ff416c;}100%{box-shadow:0 0 25px #ff4b2b,0 0 50px #ff416c;}}
+
+/* SUCCESS MESSAGE */
+.success-msg{margin-top:15px;color:#00ff99;font-weight:bold;display:none;font-size:1rem;animation:pop 0.5s ease-out;}
+@keyframes pop{0%{transform:scale(0);opacity:0;}50%{transform:scale(1.2);opacity:1;}100%{transform:scale(1);}}
+
+.coin{position:absolute;width:20px;height:20px;background:gold;border-radius:50%;animation:fall 1s ease-out forwards;opacity:0.9;z-index:5;}
+@keyframes fall{0%{transform:translateY(0) scale(1);opacity:1;}100%{transform:translateY(150px) scale(0.5);opacity:0;}}
+
+.confetti{position:absolute;width:10px;height:10px;background:red;opacity:0.8;z-index:5;border-radius:50%;animation:confetti 1s linear forwards;}
+@keyframes confetti{0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(200px) rotate(360deg);opacity:0;}}
+
+/* CATEGORY LIST */
+.category-section{width:90%;max-width:1000px;margin:0 auto 40px;}
+.category-section h2{color:#ffdd00;font-family:'Orbitron',sans-serif;margin-bottom:15px;text-shadow:0 0 5px #ffdd00;}
+.item-list{display:flex;flex-wrap:wrap;gap:10px;}
+.item{background:rgba(255,255,255,0.1);flex:1 1 150px;padding:10px;border-radius:10px;text-align:center;cursor:pointer;transition:0.3s;}
+.item:hover{background:rgba(255,255,255,0.2);transform:scale(1.05);}
+
+@media(max-width:600px){.item-list{flex-direction:column;}.card{padding:20px;}}
+</style>
 </head>
 <body>
 
-<header class="header">
-  <img src="assets/logo.png" class="logo">
-  <div>
-    <h1>FanzzStore</h1>
-    <span class="subtitle">Top Up Game • Pulsa • Voucher • Kuota Internet</span>
-  </div>
+<div id="particles"></div>
+
+<header>
+<h1>FanzzStore Top-Up Ultimate</h1>
 </header>
 
-  <!-- BANNER -->
-<div class="banner">
-  <img src="assets/banner.jpg" alt="Banner FanzzStore">
+<!-- BANNER SLIDER -->
+<div class="slider" id="banner-slider">
+<img src="banner1.jpg" class="active">
+<img src="banner2.jpg">
+<img src="banner3.jpg">
 </div>
 
-<div class="search-box">
-  <input type="text" id="searchInput" placeholder="Cari game, pulsa, voucher, internet...">
+<!-- TOP-UP FORM -->
+<div class="card">
+<form id="topup-form">
+<input type="text" name="name" placeholder="Nama Pemain" required>
+<input type="email" name="email" placeholder="Email" required>
+<select name="category" id="category-select" required>
+<option value="" disabled selected>Pilih Kategori</option>
+</select>
+<select name="item" id="item-select" required>
+<option value="" disabled selected>Pilih Item</option>
+</select>
+<input type="number" name="amount" placeholder="Jumlah Top-Up / Nominal (Rp)" required>
+<button type="submit">Top-Up Sekarang</button>
+<div class="success-msg" id="success-msg">Top-Up berhasil dikirim! 🎉</div>
+</form>
 </div>
 
-<div class="tabs">
-  <button class="active" onclick="showTab('game',this)">Game</button>
-  <button onclick="showTab('pulsa',this)">Pulsa</button>
-  <button onclick="showTab('voucher',this)">Voucher</button>
-  <button onclick="showTab('internet',this)">Internet</button>
+<!-- CATEGORY LIST DISPLAY -->
+<div class="category-section" id="category-section">
+<h2>Daftar Top-Up</h2>
+<div class="item-list" id="item-list"></div>
 </div>
 
-<section id="game" class="tab-content active">
-  <div class="grid">
-    <a href="games/mlbb.html" class="card"><img src="assets/icons/mlbb.jpg"><span>Mobile Legends</span></a>
-    <a href="games/freefire.html" class="card"><img src="assets/icons/freefire.jpg"><span>Free Fire</span></a>
-    <a href="games/genshin.html" class="card"><img src="assets/icons/genshin.jpg"><span>Genshin Impact</span></a>
-    <a href="games/codm.html" class="card"><img src="assets/icons/codm.jpg"><span>Call of Duty Mobile</span></a>
-    <a href="games/roblox.html" class="card"><img src="assets/icons/roblox.jpg"><span>Roblox</span></a>
-    <a href="games/apex.html" class="card"><img src="assets/icons/apex.jpg"><span>Apex Legends</span></a>
-  </div>
-</section>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+// ===== EMAILJS =====
+emailjs.init("YOUR_EMAILJS_USER_ID");
 
-<section id="pulsa" class="tab-content">
-  <div class="grid">
-    <a href="pulsa/telkomsel.html" class="card"><img src="assets/icons/telkomsel.png"><span>Telkomsel</span></a>
-    <a href="pulsa/xl.html" class="card"><img src="assets/icons/xl.png"><span>XL</span></a>
-    <a href="pulsa/indosat.html" class="card"><img src="assets/icons/indosat.png"><span>Indosat</span></a>
-  </div>
-</section>
+// ===== PARTICLES =====
+const particlesContainer=document.getElementById('particles');
+for(let i=0;i<30;i++){
+let particle=document.createElement('div');particle.className='particle';
+particle.style.left=Math.random()*100+'vw';
+particle.style.top=Math.random()*100+'vh';
+particle.style.width=(Math.random()*4+2)+'px';
+particle.style.height=(Math.random()*4+2)+'px';
+particle.style.animationDuration=(Math.random()*5+5)+'s';
+particlesContainer.appendChild(particle);
+}
 
-<section id="voucher" class="tab-content">
-  <div class="grid">
-    <a href="voucher/googleplay.html" class="card"><img src="assets/icons/googleplay.png"><span>Google Play</span></a>
-    <a href="voucher/steam.html" class="card"><img src="assets/icons/steam.png"><span>Steam</span></a>
-    <a href="voucher/pubg.html" class="card"><img src="assets/icons/pubg.jpg"><span>PUBG Mobile</span></a>
-    <a href="voucher/itunes.html" class="card"><img src="assets/icons/itunes.png"><span>iTunes</span></a>
-  </div>
-</section>
+// ===== BANNER SLIDER =====
+let banners=document.querySelectorAll('#banner-slider img');
+let current=0;
+setInterval(()=>{banners[current].classList.remove('active');current=(current+1)%banners.length;banners[current].classList.add('active');},5000);
 
-  <section id="internet" class="tab-content">
-  <div class="grid">
-    <a href="internet/telkomselinternet.html" class="card"><img src="assets/icons/telkomsel.png"><span>Telkomsel Internet</span></a>
-    <a href="internet/xlinternet.html" class="card"><img src="assets/icons/xl.png"><span>XL Internet</span></a>
-    <a href="internet/indosatinternet.html" class="card"><img src="assets/icons/indosat.png"><span>Indosat Internet</span></a>
-  </div>
-  </section>
+// ===== CATEGORY & ITEM FROM JSON =====
+const categories={
+game:['Mobile Legends','Free Fire','PUBG Mobile','Genshin Impact','Among Us','Valorant','Apex Legends','Call of Duty','MLBB Diamonds'],
+pulsa:['Telkomsel','Indosat','XL','Axis','Tri'],
+voucher:['Steam Wallet','Google Play','App Store','PlayStation Store'],
+streaming:['Netflix','Spotify','Disney+','YouTube Premium'],
+ewallet:['OVO','GoPay','DANA','LinkAja']
+};
 
-<script src="js/app.js"></script>
+const categorySelect=document.getElementById('category-select');
+const itemSelect=document.getElementById('item-select');
+const itemList=document.getElementById('item-list');
+
+// populate category dropdown
+for(const cat in categories){
+let option=document.createElement('option');option.value=cat;option.textContent=cat.charAt(0).toUpperCase()+cat.slice(1);categorySelect.appendChild(option);
+}
+
+// update items on category change
+categorySelect.addEventListener('change',function(){
+let items=categories[this.value];itemSelect.innerHTML='<option value="" disabled selected>Pilih Item</option>';
+items.forEach(i=>{let o=document.createElement('option');o.value=i;o.textContent=i;itemSelect.appendChild(o);});
+});
+
+// show all items in list
+function showAllItems(){
+itemList.innerHTML='';
+for(const cat in categories){
+categories[cat].forEach(item=>{
+let div=document.createElement('div');div.className='item';div.textContent=item;itemList.appendChild(div);
+});}}
+showAllItems();
+
+// ===== FORM SUBMIT =====
+const form=document.getElementById('topup-form');
+const successMsg=document.getElementById('success-msg');
+const clickSound=new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
+
+form.addEventListener('submit',function(e){
+e.preventDefault();
+clickSound.play();
+emailjs.sendForm('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',this).then(()=>{
+successMsg.style.display='block';
+animateCoins(25);animateConfetti(25);
+form.reset();
+},(err)=>{alert('Gagal mengirim: '+JSON.stringify(err));});
+});
+
+// ===== COINS =====
+function animateCoins(count){for(let i=0;i<count;i++){let coin=document.createElement('div');coin.className='coin';coin.style.left=(Math.random()*80+10)+'%';coin.style.top='0';coin.style.animationDuration=(0.8+Math.random()*0.5)+'s';document.body.appendChild(coin);setTimeout(()=>coin.remove(),1200);}}
+function animateConfetti(count){const colors=['#ff0000','#00ff00','#0000ff','#ffff00','#ff00ff','#00ffff'];for(let i=0;i<count;i++){let c=document.createElement('div');c.className='confetti';c.style.left=(Math.random()*90+5)+'%';c.style.background=colors[Math.floor(Math.random()*colors.length)];document.body.appendChild(c);setTimeout(()=>c.remove(),1200);}}
+</script>
 </body>
   </html>
